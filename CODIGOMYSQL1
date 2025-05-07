@@ -1,0 +1,28 @@
+CODIGO MYSQL
+CREATE TABLE generos (
+id_genero INT PRIMARY KEY,
+nombre_genero VARCHAR(50) NOT NULL
+);
+
+INSERT INTO generos (id_genero, nombre_genero) VALUES
+(1, 'Ciencia ficcion'),
+(2, 'Aventura'),
+(3, 'Drama'),
+(4, 'Comedia'),
+(5, 'Animacion');
+
+CREATE TABLE peliculas (
+    id_pelicula  VARCHAR(10) PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    director VARCHAR(100),
+    añode_Estreno  INT, 
+    sinopsis TEXT,
+    id_genero  INT,
+    FOREIGN KEY (id_genero) REFERENCES generos(id_genero)
+);
+INSERT INTO peliculas (id_pelicula, titulo, director, añode_Estreno, sinopsis, id_genero) VALUES
+('001', 'Interestelar', 'Christopher Nolan', 2014, 'Un equipo de exploradores viaja a traves de un agujero de gusano en busca de un nuevo hogar para la humanidad', 1),
+('002', 'El Señor de los Anillos: La Comunidad del Anillo', 'Peter Jackson', 2001, 'Un joven hobbit llamado Frodo Bolson hereda un anillo mágico y peligroso y se embarca en una aventura para destruirlo.', 2),
+('003', 'Forrest Gump', 'Robert Zemeckis', 1994, 'Las presidencias de Kennedy y Johnson, Vietnam, Watergate y otros eventos históricos se desarrollan a través de la perspectiva de un hombre de Alabama con un bajo coeficiente intelectual pero con buenas intenciones', 3),
+('004', 'Toy Story', 'John Lasseter', 1995, 'Un vaquero de juguete se siente profundamente amenazado y celoso cuando un nuevo juguete, un guardián espacial, le quita la atención de su dueño', 5),
+('005', 'Origen', 'Christopher Nolan', 2010, 'A un ladrón que roba información infiltrándose en el subconsciente de sus víctimas durante los sueños se le ofrece una oportunidad para limpiar su historial', 1);
